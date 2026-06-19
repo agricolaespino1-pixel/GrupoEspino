@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Negocios | Grupo Espino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=300;400;600;700&family=Playfair+Display:ital,wght=0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-premium: #1b4332;
+            --verde-acento: #2d6a4f;
+            --verde-brillante: #00e676;
+            --blanco: #ffffff;
+            --gris-oscuro: #2b2d42;
+            --gris-claro: #f4f7f5;
+            --fuente-titulos: 'Playfair Display', serif;
+            --fuente-cuerpo: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            color: var(--gris-oscuro);
+            background-color: var(--gris-claro);
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            width: 100%; top: 0; left: 0; z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.11);
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                        url('https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=600') no-repeat center center/cover;
+        }
+
+        .nav-container {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 20px;
+        }
+
+        .logo { text-decoration: none; display: flex; flex-direction: column; }
+        .logo-txt { font-family: var(--fuente-titulos); font-size: 22px; font-weight: 700; color: var(--verde-premium); letter-spacing: 1px; line-height: 1.1; }
+        .logo span { font-family: var(--fuente-cuerpo); font-weight: 600; font-size: 10px; letter-spacing: 3px; color: var(--verde-acento); }
+
+        nav { display: flex; gap: 20px; }
+        nav a { text-decoration: none; color: var(--gris-oscuro); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+        nav a:hover, nav a.active { color: var(--verde-premium); border-bottom: 2px solid var(--verde-acento); }
+
+        /* --- TITULO DE LA PÁGINA --- */
+        .banner-seccion {
+            background: linear-gradient(rgba(27, 67, 50, 0.9), rgba(27, 67, 50, 0.85)), 
+                        url('https://images.pexels.com/photos/442154/pexels-photo-442154.jpeg?auto=compress&cs=tinysrgb&w=1280') no-repeat center center/cover;
+            color: var(--blanco);
+            text-align: center;
+            padding: 130px 20px 60px 20px;
+        }
+
+        .banner-seccion h1 {
+            font-family: var(--fuente-titulos);
+            font-size: 36px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .banner-seccion p {
+            font-size: 15px;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            color: rgba(255,255,255,0.85);
+            letter-spacing: 0.5px;
+        }
+
+        /* --- CONTENEDOR DE NEGOCIOS (GRID ESTILO IANSA) --- */
+        .negocios-container {
+            max-width: 1200px;
+            margin: 50px auto 80px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* Tarjeta Corporativa */
+        .tarjeta-negocio {
+            background-color: var(--blanco);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tarjeta-negocio:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(27, 67, 50, 0.15);
+        }
+
+        /* Imagen Superior de la Tarjeta */
+        .negocio-imagen {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Contenido de Texto */
+        .negocio-info {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .negocio-info h2 {
+            font-family: var(--fuente-titulos);
+            color: var(--verde-premium);
+            font-size: 24px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .negocio-info p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* Botón Estilo Premium Iansa */
+        .btn-conocer {
+            align-self: flex-start;
+            text-decoration: none;
+            color: var(--verde-premium);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1.5px solid var(--verde-premium);
+            padding: 10px 22px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-conocer:hover {
+            background-color: var(--verde-premium);
+            color: var(--blanco);
+        }
+
+        /* --- FOOTER --- */
+        footer { 
+            background-color: var(--verde-premium); 
+            color: rgba(255,255,255,0.8); 
+            padding: 40px 20px; 
+            text-align: center; 
+            font-size: 13px; 
+            border-top: 5px solid var(--verde-acento); 
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 8px; text-align: center; }
+            nav { gap: 12px; justify-content: center; }
+            .banner-seccion h1 { font-size: 28px; }
+            .negocios-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-txt">GRUPO ESPINO</div>
+                <span>SOLUCIONES AGRÍCOLAS</span>
+            </a>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="negocios.html" class="active">Negocios</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="banner-seccion">
+        <h1>Nuestros Negocios</h1>
+        <p>Diversificación, excelencia y sustentabilidad en cada una de nuestras divisiones operacionales en el Valle de Ica.</p>
+    </section>
+
+    <main class="negocios-container">
+
+        <div class="tarjeta-negocio">
+            <div class="negocio-imagen" style="background-image: url('https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+            <div class="negocio-info">
+                <h2>Agrícola Espino</h2>
+                <p>Especialistas en la producción, comercialización y distribución de enmiendas agroecológicas puras y repelentes botánicos de residuo cero encaminados hacia una nutrición vegetal óptima.</p>
+                <a href="catalogo.html" class="btn-conocer">Conocer más</a>
+            </div>
+        </div>
+
+        <div class="tarjeta-negocio">
+            <div class="negocio-imagen" style="background-image: url('https://images.pexels.com/photos/2912176/pexels-photo-2912176.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+            <div class="negocio-info">
+                <h2>Vitivinícola Espino</h2>
+                <p>Dedicados al cultivo de vides seleccionadas y a la elaboración artesanal y técnica de vinos y piscos de la más alta pureza, capturando la esencia y tradición del Valle de Ica.</p>
+                <a href="contacto.html" class="btn-conocer">Conocer más</a>
+            </div>
+        </div>
+
+        <div class="tarjeta-negocio">
+            <div class="negocio-imagen" style="background-image: url('https://images.pexels.com/photos/1105019/pexels-photo-1105019.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+            <div class="negocio-info">
+                <h2>Vivero Espino</h2>
+                <p>Propagación vegetal de alta calidad fitosanitaria. Desarrollamos plantones fuertes, saludables y con excelente base genética para asegurar el rendimiento de tus futuros proyectos agrícolas.</p>
+                <a href="contacto.html" class="btn-conocer">Conocer más</a>
+            </div>
+        </div>
+
+        <div class="tarjeta-negocio">
+            <div class="negocio-imagen" style="background-image: url('https://images.pexels.com/photos/5665664/pexels-photo-5665664.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+            <div class="negocio-info">
+                <h2>Huevos el Huevón</h2>
+                <p>Nuestra división avícola de nutrición humana premium. Producción y distribución de huevos frescos clasificados con riguroso control microbiológico y de frescura directo a tu mesa.</p>
+                <a href="contacto.html" class="btn-conocer">Conocer más</a>
+            </div>
+        </div>
+
+        <div class="tarjeta-negocio">
+            <div class="negocio-imagen" style="background-image: url('https://images.pexels.com/photos/442154/pexels-photo-442154.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+            <div class="negocio-info">
+                <h2>Fundo el Domador</h2>
+                <p>Centro neurálgico operacional donde se ejecutan los rigurosos procesos de campo, packing, validaciones técnicas de exportación y la crianza responsable bajo estándares de sostenibilidad.</p>
+                <a href="contacto.html" class="btn-conocer">Conocer más</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Grupo Espino. Todos los derechos reservados. Valle de Ica, Perú.</p>
+    </footer>
+
+</body>
+</html>
