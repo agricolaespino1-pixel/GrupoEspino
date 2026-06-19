@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Espino | Soluciones Agrícolas Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=300;400;600;700&family=Playfair+Display:ital,wght=0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-premium: #1b4332;
+            --verde-acento: #2d6a4f;
+            --blanco: #ffffff;
+            --gris-oscuro: #2b2d42;
+            --fuente-titulos: 'Playfair Display', serif;
+            --fuente-cuerpo: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            color: var(--gris-oscuro);
+            background-color: var(--blanco);
+            line-height: 1.6;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), 
+                              url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8h88R43oazQXhnF5W4hyvREAbXJqUg0LPylTSoymtp0gKPrVkgTa15KpQ&s');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* --- HEADER CON BANNER DE FONDO --- */
+        header {
+            position: fixed;
+            width: 100%; top: 0; left: 0; z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), 
+                        url('https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=600') no-repeat center center/cover;
+        }
+
+        .nav-container {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 20px;
+        }
+
+        .logo { text-decoration: none; display: flex; flex-direction: column; }
+        .logo-txt { font-family: var(--fuente-titulos); font-size: 22px; font-weight: 700; color: var(--verde-premium); letter-spacing: 1px; line-height: 1.1; }
+        .logo span { font-family: var(--fuente-cuerpo); font-weight: 600; font-size: 10px; letter-spacing: 3px; color: var(--verde-acento); }
+
+        nav { display: flex; gap: 20px; }
+        nav a { text-decoration: none; color: var(--gris-oscuro); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+        nav a:hover, nav a.active { color: var(--verde-premium); border-bottom: 2px solid var(--verde-acento); }
+
+        /* --- HERO SLIDER --- */
+        .hero-container { position: relative; height: 70vh; margin-top: 65px; overflow: hidden; background-color: #111; }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; display: flex; align-items: center; justify-content: center; text-align: center; background-size: cover; background-position: center; padding: 20px; }
+        .slide.active { opacity: 1; }
+        .slide::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)); z-index: 1; }
+        
+        .hero-content { position: relative; z-index: 2; color: var(--blanco); max-width: 800px; }
+        .hero-content h1 { font-family: var(--fuente-titulos); font-size: 38px; margin-bottom: 15px; font-weight: 400; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
+        .hero-content p { font-size: 15px; font-weight: 300; letter-spacing: 2px; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); }
+
+        /* --- SECCIÓN BIENVENIDA --- */
+        .bienvenida { max-width: 800px; margin: 60px auto; padding: 0 20px; text-align: center; }
+        .bienvenida h2 { font-family: var(--fuente-titulos); color: var(--verde-premium); font-size: 32px; margin-bottom: 20px; }
+        .bienvenida p { font-size: 16px; color: #444; line-height: 1.8; }
+
+        footer { background-color: var(--verde-premium); color: rgba(255,255,255,0.8); padding: 40px 20px; text-align: center; font-size: 13px; border-top: 5px solid var(--verde-acento); }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 8px; text-align: center; }
+            nav { gap: 12px; justify-content: center; }
+            .hero-content h1 { font-size: 26px; }
+            .hero-container { height: 55vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-txt">GRUPO ESPINO</div>
+                <span>SOLUCIONES AGRÍCOLAS</span>
+            </a>
+            <nav>
+                <a href="index.html" class="active">Inicio</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-container">
+        <div class="slide active" style="background-image: url('https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=1280');">
+            <div class="hero-content">
+                <h1>Nutrición Humana y Agroecológica de Alta Pureza</h1>
+                <p>Comprometidos con la calidad en campo, packing y sustentabilidad orgánica.</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://images.pexels.com/photos/2255459/pexels-photo-2255459.jpeg?auto=compress&cs=tinysrgb&w=1280');">
+            <div class="hero-content">
+                <h1>Bioprotección Avanzada y Residuo Cero</h1>
+                <p>Cuidamos tus cultivos con repelentes orgánicos de alta eficiencia botánica.</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://images.pexels.com/photos/2886938/pexels-photo-2886938.jpeg?auto=compress&cs=tinysrgb&w=1280');">
+            <div class="hero-content">
+                <h1>Asesoría Especializada de Exportación</h1>
+                <p>Supervisión rigurosa en calidad de campo y packing para mercados globales.</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="bienvenida">
+        <h2>Bienvenidos a Grupo Espino</h2>
+        <p>Somos una organización líder del Valle de Ica orientada al desarrollo técnico y sustentable de la agricultura moderna. Suministramos insumos orgánicos de óptima asimilación biológica y proveemos servicios analíticos y de supervisión de calidad que garantizan el éxito agroexportador de sus cultivos bajo exigentes normativas de inocuidad global.</p>
+    </main>
+
+    <footer>
+        <p>© 2026 Grupo Espino. Todos los derechos reservados. Valle de Ica, Perú.</p>
+    </footer>
+
+    <script>
+        let indiceSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function cambiarSlide() {
+            if(slides.length > 0) {
+                slides[indiceSlide].classList.remove('active');
+                indiceSlide = (indiceSlide + 1) % slides.length;
+                slides[indiceSlide].classList.add('active');
+            }
+        }
+        setInterval(cambiarSlide, 3000);
+    </script>
+</body>
+</html>

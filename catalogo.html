@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Corporativo | Grupo Espino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-premium: #1b4332;
+            --verde-acento: #2d6a4f;
+            --blanco: #ffffff;
+            --gris-oscuro: #2b2d42;
+            --gris-suave: rgba(248, 249, 250, 0.85);
+            --fuente-titulos: 'Playfair Display', serif;
+            --fuente-cuerpo: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            color: var(--gris-oscuro);
+            background-color: var(--blanco);
+            line-height: 1.6;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), 
+                              url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8h88R43oazQXhnF5W4hyvREAbXJqUg0LPylTSoymtp0gKPrVkgTa15KpQ&s');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            width: 100%; top: 0; left: 0; z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), 
+                        url('https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=600') no-repeat center center/cover;
+        }
+
+        .nav-container {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 20px;
+        }
+
+        .logo { text-decoration: none; display: flex; flex-direction: column; }
+        .logo-txt { font-family: var(--fuente-titulos); font-size: 22px; font-weight: 700; color: var(--verde-premium); letter-spacing: 1px; }
+        .logo span { font-family: var(--fuente-cuerpo); font-weight: 600; font-size: 10px; letter-spacing: 3px; color: var(--verde-acento); }
+
+        nav { display: flex; gap: 20px; }
+        nav a { text-decoration: none; color: var(--gris-oscuro); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+        nav a:hover, nav a.active { color: var(--verde-premium); border-bottom: 2px solid var(--verde-acento); }
+
+        /* --- CONTENEDOR FILTROS --- */
+        .seccion-navegacion-productos {
+            margin-top: 90px;
+            background-color: var(--gris-suave);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .filtros-btn {
+            background: white; border: 1px solid var(--verde-premium); color: var(--verde-premium);
+            padding: 12px 25px; font-family: var(--fuente-cuerpo); font-size: 12px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 2px; margin: 5px; cursor: pointer; border-radius: 50px;
+            transition: all 0.4s ease;
+        }
+
+        .filtros-btn:hover, .filtros-btn.activo { background-color: var(--verde-premium); color: var(--blanco); }
+
+        /* --- CARDS Y REJILLA --- */
+        .contenido-principal { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .categoria-bloque { display: none; animation: fadeIn 0.6s ease forwards; }
+        .categoria-bloque.visible { display: block; }
+        
+        .categoria-titulo { text-align: center; font-family: var(--fuente-titulos); font-size: 32px; color: var(--verde-premium); margin-bottom: 10px; font-weight: 400; }
+        .categoria-subtitulo { text-align: center; font-size: 14px; color: #6c757d; max-width: 600px; margin: 0 auto 35px auto; }
+
+        .grid-productos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .card { 
+            background-color: rgba(255, 255, 255, 0.95); border-radius: 6px; overflow: hidden; border: 1px solid #eee; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02); 
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+            cursor: pointer; 
+        }
+        .card:hover, .card:active { transform: scale(1.04); box-shadow: 0 20px 40px rgba(27, 67, 50, 0.18); }
+        
+        .card-img { height: 220px; background-size: cover; background-position: center; position: relative; }
+        .card-info { padding: 25px; }
+        .card-info h3 { font-family: var(--fuente-titulos); font-size: 20px; color: var(--verde-premium); margin-bottom: 10px; font-weight: 700; }
+        .card-info p { font-size: 13px; color: #555; line-height: 1.7; }
+        .badge { position: absolute; top: 15px; left: 15px; background-color: rgba(255,255,255,0.95); color: var(--verde-premium); padding: 4px 12px; font-size: 10px; font-weight: 600; text-transform: uppercase; border-radius: 50px; }
+
+        footer { background-color: var(--verde-premium); color: rgba(255,255,255,0.8); padding: 40px 20px; text-align: center; font-size: 13px; margin-top: 60px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 8px; text-align: center; }
+            .seccion-navegacion-productos { margin-top: 120px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-txt">GRUPO ESPINO</div>
+                <span>SOLUCIONES AGRÍCOLAS</span>
+            </a>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html" class="active">Catálogo</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="seccion-navegacion-productos">
+        <button id="btn-enmiendas" class="filtros-btn activo" onclick="filtrarCategoria('enmiendas', this)">Enmiendas Orgánicas</button>
+        <button id="btn-repelentes" class="filtros-btn" onclick="filtrarCategoria('repelentes', this)">Repelentes Agrícolas</button>
+        <button id="btn-servicios" class="filtros-btn" onclick="filtrarCategoria('servicios', this)">Servicios Profesionales</button>
+    </div>
+
+    <main class="contenido-principal">
+
+        <div id="enmiendas" class="categoria-bloque visible">
+            <h2 class="categoria-titulo">Enmiendas Orgánicas</h2>
+            <p class="categoria-subtitulo">Regenera la estructura del suelo aportando vida y equilibrio natural.</p>
+            <div class="grid-productos">
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.pexels.com/photos/1105019/pexels-photo-1105019.jpeg?auto=compress&cs=tinysrgb&w=600');"><span class="badge">Orgánico</span></div>
+                    <div class="card-info">
+                        <h3>Compost Agrícola</h3>
+                        <p>Materia orgánica homogénea que optimiza la retención de agua y nutre la microbiología nativa del suelo.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.pexels.com/photos/6129507/pexels-photo-6129507.jpeg?auto=compress&cs=tinysrgb&w=600');"><span class="badge">Premium</span></div>
+                    <div class="card-info">
+                        <h3>Humus Agrícola</h3>
+                        <p>Humus de lombriz puro de alta asimilación. Aumenta drásticamente el intercambio catiónico radicular.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.pexels.com/photos/1325617/pexels-photo-1325617.jpeg?auto=compress&cs=tinysrgb&w=600');"><span class="badge">Bioestimulante</span></div>
+                    <div class="card-info">
+                        <h3>Biol Agrícola</h3>
+                        <p>Abono líquido foliar obtenido por fermentación controlada. Potencia las defensas de la planta.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="repelentes" class="categoria-bloque">
+            <h2 class="categoria-titulo">Repelentes Agrícolas</h2>
+            <p class="categoria-subtitulo">Cuidado preventivo botánico sin dejar residuos químicos en tus cosechas.</p>
+            <div class="grid-productos">
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.pexels.com/photos/4033011/pexels-photo-4033011.jpeg?auto=compress&cs=tinysrgb&w=600');"><span class="badge">Extracto Seco</span></div>
+                    <div class="card-info">
+                        <h3>Polvo de Kion</h3>
+                        <p>Acción natural antimicrobiana basada en compuestos gingeroles para frenar hongos fitopatógenos.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.pexels.com/photos/4198568/pexels-photo-4198568.jpeg?auto=compress&cs=tinysrgb&w=600');"><span class="badge">Contacto</span></div>
+                    <div class="card-info">
+                        <h3>Jabón Potásico</h3>
+                        <p>Elimina insectos de cutícula blanda de manera mecánica y limpia melazas sin generar resistencia.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.pexels.com/photos/2804322/pexels-photo-2804322.jpeg?auto=compress&cs=tinysrgb&w=600');"><span class="badge">Capsaicina</span></div>
+                    <div class="card-info">
+                        <h3>Extracto de Ajís - Ajos</h3>
+                        <p>Efecto de repelencia extrema e inhibidor de alimentación por contacto para ácaros y masticadores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="servicios" class="categoria-bloque">
+            <h2 class="categoria-titulo">Servicios Especializados</h2>
+            <p class="categoria-subtitulo">Acompañamiento profesional en cada fase de tu producción agrícola.</p>
+            <div class="grid-productos">
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.pexels.com/photos/5945671/pexels-photo-5945671.jpeg?auto=compress&cs=tinysrgb&w=600');"><span class="badge">Campo</span></div>
+                    <div class="card-info">
+                        <h3>Asesoría Agrícola</h3>
+                        <p>Diseño de planes nutricionales a medida, optimización de riego y manejo integrado ecológico.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.pexels.com/photos/442154px/pexels-photo-442154px.jpeg?auto=compress&cs=tinysrgb&w=600');"><span class="badge">Calidad</span></div>
+                    <div class="card-info">
+                        <h3>Supervisión de Calidad Campo Packing</h3>
+                        <p>Auditoría integral para asegurar rigurosamente los estándares de inocuidad y exportación.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Grupo Espino. Todos los derechos reservados. Valle de Ica, Perú.</p>
+    </footer>
+
+    <script>
+        function filtrarCategoria(categoriaId, botonActivo) {
+            const bloques = document.querySelectorAll('.categoria-bloque');
+            bloques.forEach(bloque => bloque.classList.remove('visible'));
+            const botones = document.querySelectorAll('.filtros-btn');
+            botones.forEach(btn => btn.classList.remove('activo'));
+            document.getElementById(categoriaId).classList.add('visible');
+            botonActivo.classList.add('activo');
+        }
+    </script>
+</body>
+</html>
