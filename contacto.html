@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto y Experiencia | Grupo Espino</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=300;400;600;700&family=Playfair+Display:ital,wght=0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --verde-premium: #1b4332;
             --verde-acento: #2d6a4f;
+            --verde-brillante: #00e676;
             --blanco: #ffffff;
             --gris-oscuro: #2b2d42;
-            --gris-suave: rgba(248, 249, 250, 0.9);
             --fuente-titulos: 'Playfair Display', serif;
             --fuente-cuerpo: 'Montserrat', sans-serif;
         }
@@ -21,186 +21,246 @@
         body {
             font-family: var(--fuente-cuerpo);
             color: var(--gris-oscuro);
-            background-color: var(--blanco);
             line-height: 1.6;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), 
-                              url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8h88R43oazQXhnF5W4hyvREAbXJqUg0LPylTSoymtp0gKPrVkgTa15KpQ&s');
+            /* Imagen de fondo difuminada con un degradado encima para garantizar la lectura */
+            background: linear-gradient(rgba(244, 247, 245, 0.92), rgba(244, 247, 245, 0.92)), 
+                        url('https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=1280') no-repeat center center/cover;
             background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
         }
 
-        /* --- ENCABEZADO --- */
+        /* --- HEADER CORPORATIVO --- */
         header {
             position: fixed;
             width: 100%; top: 0; left: 0; z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), 
                         url('https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=600') no-repeat center center/cover;
-        }
-
-        .nav-container {
-            max-width: 1200px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 12px 20px;
-        }
-
-        .logo { text-decoration: none; display: flex; flex-direction: column; }
-        .logo-txt { font-family: var(--fuente-titulos); font-size: 22px; font-weight: 700; color: var(--verde-premium); letter-spacing: 1px; }
-        .logo span { font-family: var(--fuente-cuerpo); font-weight: 600; font-size: 10px; letter-spacing: 3px; color: var(--verde-acento); }
-
-        nav { display: flex; gap: 20px; }
-        nav a { text-decoration: none; color: var(--gris-oscuro); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
-        nav a:hover, nav a.active { color: var(--verde-premium); border-bottom: 2px solid var(--verde-acento); }
-
-        /* --- CONTENEDOR PRINCIPAL --- */
-        .main-container {
-            max-width: 900px;
-            margin: 120px auto 60px auto;
-            padding: 0 20px;
-        }
-
-        /* --- SECCIÓN PERFIL / PRESENTACIÓN --- */
-        .perfil-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 8px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 15px 10px;
             text-align: center;
-            border: 1px solid #eee;
-            margin-bottom: 40px;
         }
 
-        /* Tu Foto de Perfil Premium */
-        .perfil-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--verde-premium);
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        .logo-txt { 
+            font-family: var(--fuente-titulos); 
+            font-size: 24px; 
+            font-weight: 700; 
+            color: var(--verde-premium); 
+            letter-spacing: 1px; 
+            line-height: 1.1;
         }
-
-        .perfil-card h1 { font-family: var(--fuente-titulos); color: var(--verde-premium); font-size: 32px; margin-bottom: 5px; }
-        .perfil-card .cargo { font-size: 14px; font-weight: 600; color: var(--verde-acento); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-        .perfil-card .descripcion { font-size: 15px; color: #555; max-width: 600px; margin: 0 auto; }
-
-        /* --- SECCIÓN EXPERIENCIA --- */
-        .experiencia-seccion {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 8px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-            margin-bottom: 40px;
-        }
-
-        .experiencia-seccion h2 { font-family: var(--fuente-titulos); color: var(--verde-premium); margin-bottom: 25px; font-size: 24px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
         
-        .linea-experiencia {
+        .logo-sub { 
+            font-family: var(--fuente-cuerpo); 
+            font-weight: 600; 
+            font-size: 11px; 
+            letter-spacing: 3px; 
+            color: var(--verde-acento);
+            margin-bottom: 12px;
+        }
+
+        nav { 
+            display: flex; 
+            gap: 15px; 
+            justify-content: center;
+            align-items: center;
+        }
+        
+        nav a { 
+            text-decoration: none; 
+            color: var(--gris-oscuro); 
+            font-weight: 700; 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            padding-bottom: 2px;
+        }
+        
+        nav a:hover, nav a.active { 
+            color: var(--verde-premium); 
+            border-bottom: 2px solid var(--verde-acento); 
+        }
+
+        /* --- CONTENEDOR DE CONTENIDO --- */
+        .main-container {
+            max-width: 600px;
+            margin: 150px auto 60px auto;
+            padding: 0 15px;
+        }
+
+        /* Tarjeta de Perfil de Andy Espino */
+        .perfil-card {
+            background-color: var(--blanco);
+            border-radius: 12px;
+            padding: 35px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            margin-bottom: 25px;
+        }
+
+        .foto-perfil-wrapper {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            border: 4px solid var(--verde-premium);
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(27, 67, 50, 0.2);
+        }
+
+        .foto-perfil-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .perfil-card h1 {
+            font-family: var(--fuente-titulos);
+            color: var(--verde-premium);
+            font-size: 32px;
+            margin-bottom: 6px;
+        }
+
+        .perfil-card .cargo {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--verde-acento);
+            margin-bottom: 20px;
+        }
+
+        .perfil-card .biografia {
+            font-size: 13.5px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Sección de Trayectoria */
+        .trayectoria-card {
+            background-color: var(--blanco);
+            border-radius: 12px;
+            padding: 30px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+
+        .trayectoria-card h2 {
+            font-family: var(--fuente-titulos);
+            color: var(--verde-premium);
+            font-size: 24px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eef2f0;
+            padding-bottom: 10px;
+        }
+
+        .timeline-item {
             position: relative;
             padding-left: 25px;
             border-left: 2px solid var(--verde-acento);
             margin-bottom: 25px;
+            text-align: left;
         }
 
-        .linea-experiencia::before {
-            content: ''; position: absolute; left: -7px; top: 5px;
-            width: 12px; height: 12px; background: var(--verde-premium); border-radius: 50%;
+        .timeline-item:last-child {
+            margin-bottom: 5px;
         }
 
-        .linea-experiencia .año { font-size: 13px; font-weight: 700; color: var(--verde-acento); }
-        .linea-experiencia h3 { font-size: 18px; color: var(--gris-oscuro); margin: 3px 0; }
-        .linea-experiencia p { font-size: 14px; color: #666; }
-
-        /* --- BOTÓN WHATSAPP --- */
-        .btn-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #25D366;
-            color: white;
-            text-decoration: none;
-            padding: 15px 35px;
-            font-weight: 600;
-            font-size: 16px;
-            border-radius: 50px;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
-            margin-top: 10px;
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px; top: 5px;
+            width: 10px; height: 10px;
+            background-color: var(--verde-premium);
+            border-radius: 50%;
         }
 
-        .btn-whatsapp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            background-color: #1ebd59;
+        .timeline-item .tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--verde-acento);
+            display: block;
+            margin-bottom: 3px;
         }
 
-        footer { background-color: var(--verde-premium); color: rgba(255,255,255,0.8); padding: 30px 20px; text-align: center; font-size: 13px; margin-top: 60px; }
+        .timeline-item h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 17px;
+            color: var(--verde-premium);
+            margin-bottom: 6px;
+        }
 
-        @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 8px; }
-            .perfil-card, .experiencia-seccion { padding: 25px; }
+        .timeline-item p {
+            font-size: 12.5px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        footer { 
+            background-color: var(--verde-premium); 
+            color: rgba(255,255,255,0.8); 
+            padding: 30px 20px; 
+            text-align: center; 
+            font-size: 12px; 
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <div class="logo-txt">GRUPO ESPINO</div>
-                <span>SOLUCIONES AGRÍCOLAS</span>
-            </a>
-            <nav>
-                <a href="index.html">Inicio</a>
-                <a href="index.html#catalogo-seccion">Catálogo</a>
-                <a href="contacto.html" class="active">Contacto</a>
-            </nav>
-        </div>
+        <div class="logo-txt">GRUPO ESPINO</div>
+        <div class="logo-sub">SOLUCIONES AGRÍCOLAS</div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="negocios.html">Negocios</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="contacto.html" class="active">Contacto</a>
+        </nav>
     </header>
 
     <main class="main-container">
+        
         <section class="perfil-card">
-            <img src="https://images.pexels.com/photos/2255459/pexels-photo-2255459.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Andy Espino" class="perfil-img">
+            <div class="foto-perfil-wrapper">
+                <img src="https://images.pexels.com/photos/5665664/pexels-photo-5665664.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Andy Espino">
+            </div>
             <h1>Andy Espino</h1>
             <div class="cargo">Fundador & Director Técnico</div>
-            <p class="descripcion">
-                Especialista en desarrollo agroecológico y optimización de cultivos en el Valle de Ica. Comprometido con la producción orgánica de alta pureza y la excelencia técnica en procesos de exportación.
-            </p>
+            <p class="biografia">Especialista en desarrollo agroecológico y optimización de cultivos en el Valle de Ica. Comprometido con la producción orgánica de alta pureza y la excelencia técnica en procesos de exportación.</p>
         </section>
 
-        <section class="experiencia-seccion">
+        <section class="trayectoria-card">
             <h2>Nuestra Trayectoria</h2>
             
-            <div class="linea-experiencia">
-                <div class="año">Diseño e Innovación</div>
+            <div class="timeline-item">
+                <span class="tag">Diseño e Innovación</span>
                 <h3>Formulación de Enmiendas y Repelentes Orgánicos</h3>
-                <p>Desarrollo especializado de líneas premium de Compost, Humus de lombriz y Bioles fermentados. Implementación de soluciones botánicas de residuo cero como Jabón Potásico y extractos puros concentrados.</p>
+                <p>Desarrollo especializado de líneas premium de Compost, Humus de lombriz y Biol fermentados. Implementación de soluciones botánicas de residuo cero como Jabón Potásico y extractos puros.</p>
             </div>
 
-            <div class="linea-experiencia">
-                <div class="año">Gestión Integral</div>
-                <h3>Supervisión de Calidad en Campo y Packing</h3>
-                <p>Dirección y aseguramiento de protocolos internacionales de inocuidad alimentaria. Control técnico riguroso desde las fases de cosecha selectiva hasta la línea final de empaque para exportación.</p>
+            <div class="timeline-item">
+                <span class="tag">Ingeniería del Riego</span>
+                <h3>Cálculo Hidrológico y Evapotranspiración</h3>
+                <p>Aplicación de metodologías técnicas basadas en el manual FAO-56 para la determinación precisa de los requerimientos de agua del cultivo, garantizando el balance hídrico idóneo de la planta.</p>
             </div>
 
-            <div class="linea-experiencia">
-                <div class="año">Asesoría Técnica</div>
-                <h3>Consultoría Agroecológica Avanzada</h3>
-                <p>Acompañamiento personalizado a productores locales en el diseño de planes de nutrición vegetal, recuperación estructural de suelos agrícolas y manejo integrado de plagas (MIP).</p>
+            <div class="timeline-item">
+                <span class="tag">Gestión Operacional</span>
+                <h3>Sistemas de Control y Asistencia Técnica</h3>
+                <p>Implementación de herramientas de control para el registro minucioso de ingreso y salida del personal de campo, optimizando los tiempos logísticos y la eficiencia de las labores agrícolas.</p>
             </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <h2 style="border:none; margin-bottom: 10px;">¿Tienes un proyecto en mente?</h2>
-                <p style="font-size: 14px; color:#666; margin-bottom: 20px;">Comunícate directamente conmigo para cotizaciones o asesorías especializadas en campo.</p>
-                <a href="https://wa.me/51999999999" target="_blank" class="btn-whatsapp">
-                    📱 Contactar por WhatsApp
-                </a>
+
+            <div class="timeline-item">
+                <span class="tag">Nutrición de Precisión</span>
+                <h3>Optimización de Planes de Fertilización</h3>
+                <p>Diseño de programas balanceados integrando enmiendas orgánicas y cálculos de fertilización técnica para corregir el suelo del Valle de Ica, potenciando el rendimiento de frutales y hortícolas.</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="tag">Aseguramiento de Calidad</span>
+                <h3>Auditoría Técnico-Comercial de Campo</h3>
+                <p>Supervisión estricta de las condiciones de cosecha y packing fitosanitario, orientada a cumplir con las demandas más exigentes de inocuidad en el mercado comercial nacional y de exportación.</p>
             </div>
         </section>
+
     </main>
 
     <footer>
